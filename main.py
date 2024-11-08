@@ -8,6 +8,7 @@ from quri_parts.core.operator import Operator
 from quri_parts.core.state import apply_circuit, ParametricCircuitQuantumState
 from quri_parts.circuit.utils.circuit_drawer import draw_circuit
 from quri_parts.qulacs.sampler import create_qulacs_vector_concurrent_sampler
+from riqu_sampler import create_riqu_concurrent_sampler
 
 from quri_parts.qulacs.estimator import (
     create_qulacs_vector_parametric_estimator,
@@ -221,7 +222,8 @@ from quri_parts.core.state import GeneralCircuitQuantumState
 quri_state = GeneralCircuitQuantumState(n, quri_circuit)
 
 # QSCI(qulacs)
-sampler = create_qulacs_vector_concurrent_sampler()
+# sampler = create_qulacs_vector_concurrent_sampler()
+sampler = create_riqu_concurrent_sampler()
 sim_result = qsci(
     hamiltonian=hamiltonian,
     approx_states=[quri_state],
@@ -231,15 +233,15 @@ sim_result = qsci(
 print("QSCI(sim):", sim_result[0][0])
 
 # QSCI(real)
-from quri_parts.riqu.backend import RiquSamplingBackend
-from qsci_riqu import qsci_riqu
+# from quri_parts.riqu.backend import RiquSamplingBackend
+# from qsci_riqu import qsci_riqu
 
-backend = RiquSamplingBackend()
-real_result = qsci_riqu(
-    hamiltonian=hamiltonian,
-    approx_states=[quri_state],
-    backend=backend,
-    total_shots=1000,
-)
-print("QSCI(real):", real_result[0][0])
+# backend = RiquSamplingBackend()
+# real_result = qsci_riqu(
+#     hamiltonian=hamiltonian,
+#     approx_states=[quri_state],
+#     backend=backend,
+#     total_shots=1000,
+# )
+# print("QSCI(real):", real_result[0][0])
 
