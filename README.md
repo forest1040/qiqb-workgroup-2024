@@ -19,3 +19,8 @@ qreg q[4];
 x q[0];
 x q[1];
 ```
+
+# library
+- [QunaSys/quri-parts-qsci](https://github.com/QunaSys/quri-parts-qsci)
+- [FujiiLabCollaboration/MNISQ-quantum-circuit-dataset: MNISQ circuit dataset for machine learning and quantum machine learning](https://github.com/FujiiLabCollaboration/MNISQ-quantum-circuit-dataset/tree/main)
+
